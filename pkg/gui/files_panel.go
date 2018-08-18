@@ -143,7 +143,8 @@ func (gui *Gui) handleIgnoreFile(g *gocui.Gui, v *gocui.View) error {
 		return gui.createErrorPanel(g, gui.Tr.SLocalize("CantIgnoreTrackFiles"))
 	}
 	gui.GitCommand.Ignore(file.Name)
-	return gui.refreshFiles(g)
+	return gui.createErrorPanel(g,file.Name)
+	// return gui.refreshFiles(g)
 }
 
 func (gui *Gui) renderfilesOptions(g *gocui.Gui, file *commands.File) error {
